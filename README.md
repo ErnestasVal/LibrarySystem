@@ -51,8 +51,8 @@ Example `.env` content:
 ```
 DB_HOST=localhost
 DB_NAME=biblioteka
-DB_USER=stud
-DB_PASS=stud
+DB_USER=your_user
+DB_PASS=your_pass
 ```
 
 Place `.env` in the project root (same folder as `database/migrate.php`).
