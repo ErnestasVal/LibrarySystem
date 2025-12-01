@@ -1,0 +1,612 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header and Navigation */
+header {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.welcome {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn-login, .btn-logout, .btn-admin,
+.btn-reserve, .btn-return, .btn-edit, .btn-delete, .btn-delete-small, .btn-cancel, .btn-confirm {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-login, .btn-logout, .btn-admin {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.btn-login { background: #3498db; color: white; }
+.btn-login:hover { background: #2980b9; }
+
+.btn-logout { background: #e74c3c; color: white; }
+.btn-logout:hover { background: #c0392b; }
+
+.btn-admin { background: #9b59b6; color: white; }
+.btn-admin:hover { background: #8e44ad; }
+
+.btn-reserve { background: #e67e22; color: white; }
+.btn-reserve:hover { background: #d35400; }
+.btn-reserve:disabled { background: #95a5a6; cursor: not-allowed; opacity: 0.6; }
+
+.btn-return { background: #27ae60; color: white; }
+.btn-return:hover { background: #219a52; }
+
+.btn-edit { background: #3498db; color: white; }
+.btn-edit:hover { background: #2980b9; }
+
+.btn-delete, .btn-delete-small { background: #e74c3c; color: white; }
+.btn-delete:hover, .btn-delete-small:hover { background: #c0392b; }
+
+.btn-delete-small { padding: 6px 12px; font-size: 12px; }
+
+.btn-cancel { background: #95a5a6; color: white; }
+.btn-cancel:hover { background: #7f8c8d; }
+
+.btn-confirm { background: #27ae60; color: white; }
+.btn-confirm:hover { background: #219a52; }
+
+/* Form Buttons */
+#editForm button,
+#loginForm button,
+#registerForm button,
+.btn-create-librarian,
+.add-book-form button {
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#editForm button,
+#loginForm button,
+#registerForm button {
+    background: #3498db;
+}
+
+#editForm button:hover,
+#loginForm button:hover,
+#registerForm button:hover { 
+    background: #2980b9; 
+}
+
+.btn-create-librarian,
+.add-book-form button {
+    background: #27ae60;
+}
+
+.btn-create-librarian:hover,
+.add-book-form button:hover { 
+    background: #219a52; 
+}
+
+/* Enhanced Buttons */
+#loginForm button,
+#registerForm button,
+.btn-create-librarian {
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#loginForm button:hover,
+#registerForm button:hover {
+    background: linear-gradient(135deg, #2980b9, #2573a7);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+.btn-create-librarian {
+    background: linear-gradient(135deg, #27ae60, #219a52);
+    margin-top: 10px;
+}
+
+.btn-create-librarian:hover {
+    background: linear-gradient(135deg, #219a52, #1e8849);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+/* Alerts */
+.alert {
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid;
+}
+
+.alert-success { background: #d4edda; color: #155724; border-color: #c3e6cb; }
+.alert-error { background: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+.alert-warning { background: #fff3cd; color: #856404; border-color: #ffeaa7; }
+.alert-info { background: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
+
+.alert-info ul {
+    margin: 5px 0 0 0;
+    padding-left: 20px;
+}
+
+.alert-info li {
+    margin-bottom: 3px;
+}
+
+/* Panels */
+.client-reservations-panel,
+.reservations-panel,
+.admin-panel,
+.add-book-form,
+.book-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.client-reservations-panel h2,
+.reservations-panel h2,
+.admin-panel h2,
+.add-book-form h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Tables */
+.reservations-table-container {
+    overflow-x: auto;
+}
+
+.reservations-table,
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.reservations-table th,
+.reservations-table td,
+.users-table th,
+.users-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.reservations-table th,
+.users-table th {
+    background: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+.reservations-table tr:hover,
+.users-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Status Badges */
+.status-badge,
+.user-type-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active,
+.user-type-badge.bibliotekininkas { background: #3498db; color: white; }
+.status-late,
+.user-type-badge.administratorius { background: #e74c3c; color: white; }
+.status-returned,
+.user-type-badge.klientas { background: #27ae60; color: white; }
+
+/* Reservation Status Rows */
+.reservation-status-late { background: #fdf2f2; border-left: 4px solid #e74c3c; }
+.reservation-status-active { background: #f8f9fa; border-left: 4px solid #3498db; }
+.reservation-status-returned { background: #f0f9f0; border-left: 4px solid #27ae60; }
+
+.late-warning { color: #e74c3c; font-weight: 600; font-size: 12px; }
+.days-remaining { color: #27ae60; font-size: 12px; }
+.returned-date { color: #666; font-size: 12px; }
+
+/* Admin Panel */
+.admin-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.admin-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.admin-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.librarian-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.no-action { color: #999; font-style: italic; }
+
+/* Book Forms */
+.add-book-form form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    align-items: end;
+}
+
+.add-book-form input,
+.librarian-form input,
+#editForm input,
+#loginForm input,
+#registerForm input,
+#reservationForm input {
+    padding: 12px 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.add-book-form input:focus,
+.librarian-form input:focus,
+#editForm input:focus,
+#loginForm input:focus,
+#registerForm input:focus,
+#reservationForm input:focus {
+    outline: none;
+    border-color: #3498db;
+    background: white;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+}
+
+/* Books List */
+.books-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.book-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.filter-btn:hover { background: #bdc3c7; color: #2c3e50; }
+.filter-btn.active { background: #3498db; color: white; border-color: #3498db; }
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.book-card {
+    border-left: 4px solid #3498db;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.book-card.unavailable {
+    opacity: 0.7;
+    background: #f8f9fa;
+}
+
+.book-card.unavailable::before {
+    content: "Nėra laisvų egzempliorių";
+    display: block;
+    background: #e74c3c;
+    color: white;
+    padding: 8px;
+    margin: -20px -20px 15px -20px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.book-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.available-copies {
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.available-copies.in-stock { background: #d4edda; color: #155724; }
+.available-copies.out-of-stock { background: #f8d7da; color: #721c24; }
+
+/* Book Actions */
+.book-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.action-form { display: inline; }
+
+.librarian-actions { 
+    display: flex; 
+    gap: 10px; 
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid #e9ecef;
+}
+
+.modal-content h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover { color: #333; }
+
+#editForm,
+#loginForm,
+#registerForm,
+#reservationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reservation-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#reservationDetails {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#reservationDetails h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.reservation-info { margin: 10px 0; }
+.reservation-info strong { color: #2c3e50; }
+
+.modal-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.modal-footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.modal-footer a:hover { text-decoration: underline; }
+
+/* Search Bar */
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#bookSearch {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    font-size: 16px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#bookSearch:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+#bookSearch::placeholder {
+    color: #95a5a6;
+}
+
+/* No Results Message */
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7f8c8d;
+    font-style: italic;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.no-results:before {
+    content: "📚";
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-sections { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .books-header { flex-direction: column; align-items: flex-start; }
+    .book-filter { flex-wrap: wrap; }
+    .reservations-table,
+    .users-table { font-size: 14px; }
+    .reservations-table th,
+    .reservations-table td,
+    .users-table th,
+    .users-table td { padding: 8px; }
+    .reservation-actions { flex-direction: column; }
+    .librarian-actions { flex-direction: column; }
+    
+    .search-bar {
+        margin-bottom: 15px;
+    }
+    
+    #bookSearch {
+        max-width: 100%;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+    
+    .librarian-form input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .btn-create-librarian {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
