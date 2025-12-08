@@ -249,7 +249,7 @@ if ($_SESSION['loggedin'] && $_SESSION['user_type'] == USER_CLIENT) {
                         </thead>
                         <tbody>
                             <?php foreach ($client_reservations as $reservation): 
-                                $is_late = !$reservation['ar_grazinta'] && strtotime($reservation['grazinimo_data']) < time();
+                                $is_late = !$reservation['ar_grazinta'] && $reservation['grazinimo_data'] < date('Y-m-d');
                                 $status_class = $reservation['ar_grazinta'] ? 'returned' : ($is_late ? 'late' : 'active');
                                 $status_text = $reservation['ar_grazinta'] ? 'Grąžinta' : ($is_late ? 'Pavėluota' : 'Aktyvi');
                             ?>
@@ -313,7 +313,7 @@ if ($_SESSION['loggedin'] && $_SESSION['user_type'] == USER_CLIENT) {
                         </thead>
                         <tbody>
                             <?php foreach ($active_reservations as $reservation): 
-                                $is_late = strtotime($reservation['grazinimo_data']) < time();
+                                $is_late = $reservation['grazinimo_data'] < date('Y-m-d');
                                 $status_class = $is_late ? 'late' : 'active';
                                 $status_text = $is_late ? 'Pavėluota' : 'Aktyvi';
                             ?>
@@ -610,10 +610,15 @@ if ($_SESSION['loggedin'] && $_SESSION['user_type'] == USER_CLIENT) {
             <h2>Redaguoti knygą</h2>
             <form method="POST" id="editForm">
                 <input type="hidden" name="book_id" id="edit_book_id">
+                <label for="edit_pavadinimas">Pavadinimas</label>
                 <input type="text" name="pavadinimas" id="edit_pavadinimas" placeholder="Pavadinimas" required>
+                <label for="edit_autorius">Autorius</label>
                 <input type="text" name="autorius" id="edit_autorius" placeholder="Autorius" required>
+                <label for="edit_puslapiu_sk">Puslapių skaičius</label>
                 <input type="number" name="puslapiu_sk" id="edit_puslapiu_sk" placeholder="Puslapių sk." required min="1">
+                <label for="edit_egzemplioriu_sk">Egzempliorių skaičius</label>
                 <input type="number" name="egzemplioriu_sk" id="edit_egzemplioriu_sk" placeholder="Egzempliorių sk." required min="1">
+                <label for="edit_isdavimo_laikas">Išdavimo laikas (dienos)</label>
                 <input type="number" name="isdavimo_laikas" id="edit_isdavimo_laikas" placeholder="Išdavimo laikas (dienos)" required min="1">
                 <button type="submit" name="edit_book">Išsaugoti pakeitimus</button>
             </form>
